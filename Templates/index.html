@@ -1,0 +1,53 @@
+<!DocType html>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<head>
+    <title>Welcome Salad Stop</title>
+</head>
+
+
+
+<body>
+    <div class="container">
+        <form method="POST">
+        <input type="date" name="fromdate" /> to <input type="date" name="todate" />
+        <input type="submit" name="search"/>
+            
+        </form>
+    </div>
+
+
+<div class="container">
+<table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Transaction_date</th>
+        <th scope="col">Supplier</th>
+        <th scope="col">Item_description</th>
+        <th scope="col">Country_of_origin</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price_Incl_Tax</th>
+        <th scope="col">Discount</th>
+        <th scope="col">Total</th>
+        <th scope="col">GST</th>
+        <th scope="col">Total_incl_GST</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for displayst in results %}
+            <tr><th scope="row">{{displayst.Transaction_date}}</th>
+            <td>{{displayst.Supplier}}</td>
+            <td>{{displayst.Item_description}}</td>
+            <td>{{displayst.Country_of_origin}}</td>
+            <td>{{displayst.Quantity}}</td>
+            <td>{{displayst.Price_Incl_Tax}}</td>
+            <td>{{displayst.Discount}}</td>
+            <td>{{displayst.Total}}</td>
+            <td>{{displayst.GST}}</td>
+            <td>{{displayst.Total_incl_GST}}</td></tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+</div>
+</body>
+</html>
