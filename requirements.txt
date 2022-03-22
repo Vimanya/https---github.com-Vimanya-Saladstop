@@ -1,0 +1,12 @@
+Django==4.0.3
+django-pandas==0.6.4
+Flask==2.0.1
+Flask-Compress==1.10.1
+Jinja2 @ file:///tmp/build/80754af9/jinja2_1635780242639/work
+mongoengine==0.24.0
+numpy @ file:///C:/ci/numpy_and_numpy_base_1620833114945/work
+pandas==1.2.4
+py==1.11.0
+pymongo==3.12.1
+pytest==7.1.1
+pytest-django==4.5.2
