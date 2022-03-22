@@ -20,5 +20,7 @@ from app_1 import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name = 'index'),
+    path('summary_saladstop/',views.aggegation,name='aggegation')
+
 
 ]
