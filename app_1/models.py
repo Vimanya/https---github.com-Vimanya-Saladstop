@@ -10,7 +10,7 @@ class salad_model(models.Model):
     Unitprice_SGD = models.FloatField(db_column='Unitprice - SGD')
     Price_Incl_Tax = models.FloatField(db_column='Price Incl Tax')
     Discount = models.FloatField(db_column='Discount %')
-    Total = models.FloatField(null=False)
+    Total = models.FloatField()
     GST = models.FloatField(db_column='GST')
     Total_incl_GST = models.FloatField(db_column='Total incl GST')
 

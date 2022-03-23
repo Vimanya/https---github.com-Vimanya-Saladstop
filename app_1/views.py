@@ -30,7 +30,7 @@ def aggegation(request):
     if request.method == 'GET':
         df = pd.DataFrame(list(res_filter.values())).fillna(0)
         df['Tot_with_GST'] = df["Total"] + (df["GST"] * df["Total"] )
-        total_price = Total = df['Tot_with_GST'].sum()
+        total_price  = df['Tot_with_GST'].sum()
         avgCostWoGst = df.groupby(df['Item_description'].str.lower())['Unitprice_SGD'].mean().reset_index().sort_values(by=['Unitprice_SGD'], ascending = False)
         big_qt = df.groupby(df['Country_of_origin'].str.lower())['Quantity'].sum().reset_index().sort_values(by=['Quantity'], ascending = False).reset_index().iloc[:1]['Country_of_origin'].values[0]
 
