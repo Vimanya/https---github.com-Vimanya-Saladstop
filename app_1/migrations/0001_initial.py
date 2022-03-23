@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('Unitprice_SGD', models.FloatField(db_column='Unitprice - SGD')),
                 ('Price_Incl_Tax', models.FloatField(db_column='Price Incl Tax')),
                 ('Discount', models.FloatField(db_column='Discount %')),
-                ('Total', models.FloatField()),
+                ('Total', models.FloatField(db_column='Total')),
                 ('GST', models.FloatField(db_column='GST')),
                 ('Total_incl_GST', models.FloatField(db_column='Total incl GST')),
             ],
