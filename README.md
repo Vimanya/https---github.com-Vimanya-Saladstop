@@ -14,7 +14,13 @@
    <ul>
      <li>Create Database - command prompt --> "mongo" command to open mongo shell --> "Use dbname" command to create database.</li>
      <li>Leave the Mongo shell</li>
-     <li></li>
+     <li>mongoimport --db mydb 
+       --collection saladstop 
+       --type csv 
+       --columnsHaveTypes 
+       --fields     Transaction_date.date,Supplier.string,Item_description.string,Country_of_origin.string,Quantity.int32,Unitprice_SGD.double,Price_Incl_Tax.double,Discount.double,Total.double,GST.double,Total_incl_GST.double 
+       --file saladstop.csv
+</li>
      <li></li>
   </ul>
 </ul>
@@ -25,7 +31,7 @@
         <li>Intially All the records in the database will Appear in the main html page.</li>
         <li>Two date pickers are available to select From date and To date</li>
         <li>After Selected the two dates , select the submit button. It will call do Ajax call and transfer the signal(fromdate and todate) to "view.py".</li>
-        <li>If "POST" request triggered if statement will run and filter the data inbetween both selected dates(Through Queryset).</li>
+        <li>If "POST" request triggered , "if" statement will run and filter the data inbetween both selected dates(Through Queryset).</li>
         <li>Save the Queryset globally.</li>
         <li>Queryset return(through context) to html page and display the data.</li> 
       </ul>
