@@ -3,6 +3,14 @@
 <ul>
   <li>Explore the data for null values and replace '#SPILLS' in the amount column to NULL.</li>
   <li>Data In the excel file need to convert into csv or json to upload into mongodb.</li>
+  <li>Pandas library with for data preparation</li>
+  <ul>
+    <li>df = pd.read_csv('importdata.csv', parse_dates = ['Transaction date'])</li>
+    <li>df = df.dropna(axis=0, subset=['Transaction date'])</li>
+    <li>df = df.replace('#SPILL!', None)</li>
+    <li>df.to_csv(r'saladstop.csv')</li>
+    <li>df.to_json(r'saladstop.json',orient = 'records')</li>
+  </ul>
   <li>In windows mongodb compass -</li>
    <ul>
      <li>Create Database - command prompt --> "mongo" command to open mongo shell --> "Use dbname" command to create database</li>
@@ -13,7 +21,6 @@
   <li>In Linux mongodb -</li>
    <ul>
      <li>Create Database - command prompt --> "mongo" command to open mongo shell --> "Use dbname" command to create database.</li>
-     <li>Leave the Mongo shell</li>
      <li>mongoimport --db mydb 
        --collection saladstop 
        --type csv 
