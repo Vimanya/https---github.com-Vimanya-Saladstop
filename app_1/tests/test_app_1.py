@@ -122,7 +122,7 @@ def test_submit_btn(client):
         Total_incl_GST = 98.68
     )
     salad_model.objects.create(
-        Transaction_date = "2020-2-4", 
+        Transaction_date = "2020-2-11", 
         Supplier = "Eat Wide Awake FOOD", 
         Item_description = "[DRESSING] Mixed Berries Vinaigrette", 
         Country_of_origin = "Singapore", 
@@ -135,7 +135,7 @@ def test_submit_btn(client):
         Total_incl_GST = 29.68
     )
     salad_model.objects.create(
-        Transaction_date = "2019-2-4", 
+        Transaction_date = "2019-2-12", 
         Supplier = "Eat Wide Awake FOOD", 
         Item_description = "[DRESSING] Mixed Berries Vinaigrette", 
         Country_of_origin = "Singapore", 
@@ -147,11 +147,11 @@ def test_submit_btn(client):
         GST = 15.34, 
         Total_incl_GST = 29.68
     )
-    a ={'fromdate' :'2020-1-1',
+    a ={'fromdate' :'2020-2-10',
     'todate' : '2020-6-30'}
 
-    fromdate = datetime.strptime('2020-1-1', '%Y-%m-%d') 
-    todate = datetime.strptime('2020-6-30', '%Y-%m-%d')
+    fromdate = datetime.strptime(a['fromdate'], '%Y-%m-%d') 
+    todate = datetime.strptime(a['todate'], '%Y-%m-%d')
     newdata = salad_model.objects.filter(Transaction_date__range =[fromdate,todate]) 
     response = client.post('/',data=a)
     assert response.status_code == 200
