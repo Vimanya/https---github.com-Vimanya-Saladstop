@@ -6,7 +6,7 @@ from django import urls
 from app_1.models import salad_model
 
 
-
+#Test to Check data insert into index page
 @pytest.mark.django_db
 def test_get_homepage(client):
     transaction = salad_model.objects.create(
@@ -39,6 +39,7 @@ def test_get_homepage(client):
     assert transaction.Total_incl_GST == 29.68
 
 
+#Test to Check data insert into summary_saladstop page
 @pytest.mark.django_db
 def test_get_createpage(client):
     transaction = salad_model.objects.create(
@@ -58,7 +59,7 @@ def test_get_createpage(client):
     assert response.status_code == 200
 
 
-
+#check calculations on aggregation function
 @pytest.mark.django_db
 def test_Data_summary(client):
     salad_model.objects.create(
@@ -106,10 +107,11 @@ def test_Data_summary(client):
     assert response.context['big_qt'] == 'china'
     assert response.context['data'] == test_data
      
+# Filter the data according to inputs
 @pytest.mark.django_db
 def test_submit_btn(client):
     salad_model.objects.create(
-        Transaction_date = "2020-2-7", 
+        Transaction_date = "2019-2-7", 
         Supplier = "new", 
         Item_description = "apple", 
         Country_of_origin = "China", 

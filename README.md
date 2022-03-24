@@ -57,4 +57,5 @@
      <li>Run requirment.txt file to get libraries.</li>
      <li>Intialize the Database inside "setting.py".</li>
      <li>Run "python manage.py runserver" and direct to localhost:8000</li>
+     <li> Find views.py and Test scripts inside the app_1 folder </li>
   </ul>

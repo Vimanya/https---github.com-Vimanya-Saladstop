@@ -17,7 +17,6 @@ def index(request):
             #change the String to date format
             fromdate = datetime.strptime(fromdate, '%Y-%m-%d') 
             todate = datetime.strptime(todate, '%Y-%m-%d')
-
             #filter the data according to the dates input(range)
             res_filter = salad_model.objects.filter(Transaction_date__range =[fromdate,todate]) 
             #return variables to html page
@@ -27,7 +26,6 @@ def index(request):
             # Error message to dispaly not selected dates
             messages.warning(request, 'Please Select From and to Dates') 
 
-    
     res_filter = salad_model.objects.all()
     context ={'results':res_filter}
     return render(request,'index.html',context)
@@ -37,14 +35,10 @@ def aggregation(request):
     if request.method == 'GET':
         #transform the queryset into pandas dataframe
         df = pd.DataFrame(list(res_filter.values())).fillna(0) 
-
         #Sum the 'Total_incl_GST' column for Total
         totalCost  = df['Total_incl_GST'].sum()  
-        print(totalCost)
-
         # Find Top supplier country
         topSupplierCountry = df.groupby(df['Country_of_origin'].str.lower())['Quantity'].sum().reset_index().sort_values(by=['Quantity'], ascending = False).reset_index().iloc[:1]['Country_of_origin'].values[0] # Find Top supplier country
-
         #Generate the average price per item table
         avgCostWoGst = df.groupby(df['Item_description'].str.lower())['Unitprice_SGD'].mean().reset_index().sort_values(by=['Unitprice_SGD'], ascending = False) 
         # transform dataframe to json for display in html
