@@ -1,9 +1,9 @@
 # https---github.com-Vimanya-Saladstop
 <h2>Data Preprocessing and Ingestion</h2>
 <ul>
-  <li>Explore the data for null values and replace '#SPILLS' in the amount column to NULL.</li>
+  <li>Explore the data and check for null values.replace '#SPILLS' in the amount column to NULL.</li>
   <li>Data In the excel file need to convert into csv or json to upload into mongodb.</li>
-  <li>Pandas library with for data preparation</li>
+  <li>Pandas library for data preparation</li>
   <ul>
     <li>df = pd.read_csv('importdata.csv', parse_dates = ['Transaction date'])</li>
     <li>df = df.dropna(axis=0, subset=['Transaction date'])</li>
@@ -37,7 +37,7 @@
       <ul>
         <li>Intially All the records in the database will Appear in the main html page.</li>
         <li>Two date pickers are available to select From date and To date</li>
-        <li>After Selected the two dates , select the submit button. It will call do Ajax call and transfer the signal(fromdate and todate) to "view.py".</li>
+        <li>After Selected the two dates , select the submit button. It will do Ajax call and transfer the signal(fromdate and todate) to "view.py".</li>
         <li>If "POST" request triggered , "if" statement will run and filter the data inbetween both selected dates(Through Queryset).</li>
         <li>Save the Queryset globally.</li>
         <li>Queryset return(through context) to html page and display the data.</li> 
@@ -46,9 +46,9 @@
      <ul>
         <li>"Data Summary" button is there to load "summary_saladstop.html" page</li>
         <li>Queryset converted into pandas dataframe.</li>
-        <li>Total sum with GST = (df["Total"] + (df["GST"] * df["Total"] )).sum()</li>
+        <li>Total Amount with GST = df['Total_incl_GST'].sum() </li>
         <li>Avg price per item without GST = groupby "Item_description" and get mean value of "Unitprice_SGD" for each item and sort by highest mean(sort()).This data displayed as a table</li>
-       <li>Top Supplier Country = Tranfer string in 'Country_of_origin' to lowercase to avoid duplicates(str.lower()) and groupby 'Country_of_origin'. sum the quantity for each country(sum()). sort by descending to get top country to top. </li>
+       <li>Top Supplier Country = Tranfer string in 'Country_of_origin' to lowercase to avoid duplicates(str.lower()) and groupby 'Country_of_origin'. sum the quantity for each country(sum()). sort by descending to get top country on the top. </li>
       </ul>
   </ul>
 

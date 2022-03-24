@@ -12,7 +12,7 @@
         console.log('came')
         $.ajax({
             type: "GET",
-            url: '{% url "aggegation" %}',
+            url: '{% url "aggregation" %}',
             
             success: function(){
               window.open('summary_saladstop/',"_self")
@@ -25,13 +25,16 @@
 
 
 <body>
+
+    <!--Error message-->
     {% if messages %}
   <ul class="messages">
     {% for message in messages %}
       <li class="{{ message.tags }}">{{ message }}</li>
     {% endfor %}
   </ul>
-{% endif %}
+    {% endif %}
+
     <div class="container">
         <!--Input Form for calander-->
         <form method="POST">
